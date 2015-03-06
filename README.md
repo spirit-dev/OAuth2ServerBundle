@@ -20,13 +20,13 @@ Installation is a quick 3 steps process:
 ### Step 1: Install SpiritDevOAuth2ServerBundle
 
 The preferred way to install this bundle is to rely on [Composer](http://getcomposer.org).
-Just check on [Packagist](https://packagist.org/packages/spirit-dev/oauth2-client-bundle) the version you want to install (in the following example, we used "dev-master") and add it to your `composer.json`:
+Just check on [Packagist](https://packagist.org/packages/spirit-dev/oauth2-server-bundle) the version you want to install (in the following example, we used "dev-master") and add it to your `composer.json`:
 
 ``` js
 {
     "require": {
         // ...
-        "spirit-dev/oauth2-client-bundle": "dev-master"
+        "spirit-dev/oauth2-server-bundle": "dev-master"
     }
 }
 ```
@@ -53,35 +53,20 @@ public function registerBundles()
 
 ### Document beeing written. This part may change.
 
-Import the routing.yml configuration file in app/config/routing.yml:
-
-``` yaml
-# app/config/routing.yml
-spirit_dev_oauth2_client_o_auth:
-    resource: "@SpiritDevOAuth2ServerBundle/Resources/config/routing.yml"
-```
-
 Add SpiritDevOAuth2ServerBundle settings in app/config/config.yml:
 
 ``` yaml
 # app/config/config.yml
-spirit_dev_o_auth2_client:
-    api_oauth_settings:
-        token_uri: "http://your.api.com/oauth/v2/token" // API url to get token
-        get_user_uri: "http://your.api.com/api/v1/user" // API url to get user informations
-        client_id: "ExampleOfServerIDProvidedByYourAPI.com" // ServerId Passphrase given by API
-        client_secret: "ExampleOfServerSecretProvidedByYourAPI.com" // ServerSecret Passphrase given by API
-        redirect_uri: "http://your.local.app/index" // Internal redirection url after login success
-        refresh_token_uri: "http://dev.spiritapi.com/check_remote_token" // url to pass to view to reload access_token
-    login_success_settings:
-        redirection_type: "twig" // Switch between js and twig to generate redirection // next arriving feature 
-        redirection_template: AcmeDemoBundle:Default:index.html.twig
+spirit_dev_o_auth2_server:
+    spiritdev_oauth_settings:
+        user_class: Acme\DemoBundle\Entity\User
+        user_provider: Acme\DemoBundle\Provider\UserProvider
 ```
 
 ## Simulating a token granting (comming soon)
 
 ## Next steps
-Now that you have completed the basic installation and configuration of the FOSUserBundle, you are ready to learn about more advanced features and usages of the bundle.
+Now that you have completed the basic installation and configuration of the SpiritDevO-Auth2ServerBundle, you are ready to learn about more advanced features and usages of the bundle.
 
 The following documents are available:
 
