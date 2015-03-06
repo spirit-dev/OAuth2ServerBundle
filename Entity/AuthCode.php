@@ -10,7 +10,7 @@ use SpiritDev\Bundle\OAuth2ServerBundle\Model\UserSubjectInterface;
  * @ORM\Table(name="spiritdev_oauth2_authcode")
  * @ORM\Entity
  */
-class AuthCode extends BaseAuthCode
+class AuthCode extends BaseAuthCode implements UserSubjectInterface
 {
     /**
      * @ORM\Id

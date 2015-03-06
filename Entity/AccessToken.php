@@ -10,7 +10,7 @@ use SpiritDev\Bundle\OAuth2ServerBundle\Model\UserSubjectInterface;
  * @ORM\Table(name="spiritdev_oauth2_accesstoken")
  * @ORM\Entity
  */
-class AccessToken extends BaseAccessToken
+class AccessToken extends BaseAccessToken implements UserSubjectInterface
 {
     /**
      * @ORM\Id

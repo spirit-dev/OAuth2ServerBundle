@@ -10,7 +10,7 @@ use SpiritDev\Bundle\OAuth2ServerBundle\Model\UserSubjectInterface;
  * @ORM\Table(name="spiritdev_oauth2_refreshtoken")
  * @ORM\Entity
  */
-class RefreshToken extends BaseRefreshToken
+class RefreshToken extends BaseRefreshToken implements UserSubjectInterface
 {
     /**
      * @ORM\Id
