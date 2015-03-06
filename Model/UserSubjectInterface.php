@@ -2,7 +2,7 @@
 
 namespace SpiritDev\Bundle\OAuth2ServerBundle\Model;
 
-interface OAuth2ServerSubjectInterface
+interface UserSubjectInterface
 {
     // Liste toutes les méthodes additionnelles dont votre
     // InvoiceBundle aura besoin pour accéder au sujet afin

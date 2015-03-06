@@ -4,7 +4,7 @@ namespace SpiritDev\Bundle\OAuth2ServerBundle\Entity;
 
 use FOS\OAuthServerBundle\Entity\AuthCode as BaseAuthCode;
 use Doctrine\ORM\Mapping as ORM;
-use SpiritDev\Bundle\OAuth2ServerBundle\Model\OAuth2ServerSubjectInterface;
+use SpiritDev\Bundle\OAuth2ServerBundle\Model\UserSubjectInterface;
 
 /**
  * @ORM\Table(name="spiritdev_oauth2_authcode")
@@ -26,8 +26,9 @@ class AuthCode extends BaseAuthCode
     protected $client;
 
     /**
-     * @ORM\ManyToOne(targetEntity="SpiritDev\Bundle\OAuth2ServerBundle\Model\OAuth2ServerSubjectInterface")
-     * @var OAuth2ServerSubjectInterface
+     * @var UserSubjectInterface
+     *
+     * @ORM\ManyToOne(targetEntity="SpiritDev\Bundle\OAuth2ServerBundle\Model\UserSubjectInterface")
      */
     protected $user;
 }
