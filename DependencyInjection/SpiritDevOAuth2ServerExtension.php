@@ -40,6 +40,13 @@ class SpiritDevOAuth2ServerExtension extends Extension {
         else {
             $container->setParameter('spirit_dev_o_auth2_server.user_provider', $config['spiritdev_oauth_settings']['user_provider']);
         }
+
+        if (!isset($config['spiritdev_oauth_settings']['user_repository'])) {
+            throw new \InvalidArgumentException('The "user_repository" option must be set');
+        }
+        else {
+            $container->setParameter('spirit_dev_o_auth2_server.user_repository', $config['spiritdev_oauth_settings']['user_repository']);
+        }
     }
 
     public function getXsdValidationBasePath() {
