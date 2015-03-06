@@ -4,6 +4,7 @@ namespace SpiritDev\Bundle\OAuth2ServerBundle\Entity;
 
 use FOS\OAuthServerBundle\Entity\AuthCode as BaseAuthCode;
 use Doctrine\ORM\Mapping as ORM;
+use SpiritDev\Bundle\OAuth2ServerBundle\Model\OAuth2ServerSubjectInterface;
 
 /**
  * @ORM\Table(name="spiritdev_oauth2_authcode")
