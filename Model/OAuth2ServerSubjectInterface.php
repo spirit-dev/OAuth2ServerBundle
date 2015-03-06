@@ -11,5 +11,5 @@ interface OAuth2ServerSubjectInterface
     /**
      * @return string
      */
-    public function getName();
+    public function __get();
 }
