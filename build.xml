@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="iLinkYou-API" default="build">
+<project name="Spirit-Dev - OAuth2 Server Bundle" default="build">
   <property name="workspace" value="${basedir}" />
   <property name="sourcedir" value="${basedir}" />
   <property name="builddir" value="${workspace}/app/build" />

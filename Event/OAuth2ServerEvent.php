@@ -9,23 +9,17 @@ use Symfony\Component\EventDispatcher\Event;
  * @author Jean BORDAT <bordat.jean@gmail.com>
  * Date    2015-03-06
  */
-class OAuth2ClientEvent extends Event {
+class OAuth2ServerEvent extends Event {
 
 	protected $data = array();
 	protected $isDefaultPrevented = false;
 	protected $isPropagationStopped = false;
-
-	/**
-	 * This function forces the bundle to preventDefaults is event triggered
-	 * @author Jean BORDAT <bordat.jean@gmail.com>
-     * Date    2015-03-06
-	 */
 	public function preventDefault() {
 		$this->isDefaultPrevented = true;
 	}
 
 	/**
-	 * Function returning the status of preventDefault in OAuth2Client Event
+	 * Function returning the status of preventDefault in OAuth2Server Event
 	 * @return boolean
 	 * @author Jean BORDAT <bordat.jean@gmail.com>
      * Date    2015-03-06
