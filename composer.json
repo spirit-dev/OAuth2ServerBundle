@@ -17,6 +17,6 @@
     "autoload": {
         "psr-0": { "SpiritDev\\Bundle\\OAuth2ClientBundle": "" }
     },
-    "target-dir": "SpiritDev/Bundle/OAuth2ServerBundle",
+    "target-dir": "SpiritDev/Bundle/OAuth2ServerBundle", 
     "minimum-stability": "dev"
 }
