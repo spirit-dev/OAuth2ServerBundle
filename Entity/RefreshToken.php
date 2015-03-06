@@ -30,4 +30,8 @@ class RefreshToken extends BaseRefreshToken implements UserSubjectInterface
      * @ORM\ManyToOne(targetEntity="SpiritDev\Bundle\OAuth2ServerBundle\Model\UserSubjectInterface")
      */
     protected $user;
+
+    public function getName() {
+
+    }
 }
