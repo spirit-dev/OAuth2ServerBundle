@@ -1,39 +1,51 @@
-Overriding Default SpiritDevOAuth2ClientBundle Templates
+Overriding Default SpiritDevOAuth2ServerBundle Templates
 ==========================================
 
-As you start to incorporate OAuth2ClientBundle into your application, you will probably
+As you start to incorporate OAuth2ServerBundle into your application, you will probably
 find that you need to override the default templates that are provided by
 the bundle. Although the template names are not configurable, the Symfony2
 framework provides two ways to override the templates of a bundle.
 
 1. Define a new template of the same name in the `app/Resources` directory
-2. Create a new bundle that is defined as a child of `SpiritDevOAuth2ClientBundle`
+2. Create a new bundle that is defined as a child of `SpiritDevOAuth2ServerBundle`
 
 ### Example: Overriding The Default layout.html.twig
 
 It is highly recommended that you override the `Resources/views/layout.html.twig`
-template so that the pages provided by the OAuth2ClientBundle have a similar look and
+template so that the pages provided by the OAuth2ServerBundle have a similar look and
 feel to the rest of your application. An example of overriding this layout template
 is demonstrated below using both of the overriding options listed above.
 
-Here is the default `login.html.twig` provided by the OAuth2ClientBundle :
+Here is the default `login.html.twig` provided by the OAuth2ServerBundle :
 
 ``` html+jinja
 {% extends "::base.html.twig" %}
 
 
 {% block body %}
-    {% block spiritdev_oauth2client_content %}
+    {% block spiritdev_oauth2server_content %}
 
-        <form class="form-signin" id="form_login" action="" role="form">
-            <h2 class="form-signin-heading">Please sign in</h2>
-            <input id="login_usr" type="text" class="form-control" placeholder="Username" required autofocus>
-            <input id="login_pw" type="password" class="form-control" placeholder="Password" required>
-            <label class="checkbox">
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
-            <button class="btn btn-lg btn-primary btn-block">Sign in</button>
-        </form>
+        <div class="form">
+            <form id="login" class="vertical" action="" method="post">
+                <div class="form_title">
+                    OAuth Authorization
+                </div>
+                {% if(error) %}
+                    <div class='form_error'></div>
+                {% endif %}
+                <div class="form_item">
+                    <div class="form_label"><label for="username">Username</label>:</div>
+                    <div class="form_widget"><input type="text" id="username" name="_username" /></div>
+                </div>
+                <div class="form_item">
+                    <div class="form_label"><label for="password">Password</label>:</div>
+                    <div class="form_widget"><input type="password" id="password" name="_password" /></div>
+                </div>
+                <div class="form_button">
+                    <input type="submit" id="_submit" name="_submit" value="Log In" />
+                </div>
+            </form>
+        </div>
 
     {% endblock %}
 {% endblock %}
@@ -41,7 +53,7 @@ Here is the default `login.html.twig` provided by the OAuth2ClientBundle :
 
 As you can see its pretty basic and doesn't really have much structure, so you will
 want to replace it with a layout file that is appropriate for your application. The
-main thing to note in this template is the block named `spiritdev_oauth2client_content`. This is
+main thing to note in this template is the block named `spiritdev_oauth2server_content`. This is
 the block where the content from each of the different bundle's actions will be
 displayed, so you must make sure to include this block in the layout file you will
 use to override the default one.
@@ -55,7 +67,7 @@ to override the one provided by the bundle.
 {% block title %}Acme Demo Application{% endblock %}
 
 {% block content %}
-    {% block spiritdev_oauth2client_content %}{% endblock %}
+    {% block spiritdev_oauth2server_content %}{% endblock %}
 {% endblock %}
 ```
 
@@ -70,8 +82,8 @@ application.
 
 The easiest way to override a bundle's template is to simply place a new one in
 your `app/Resources` folder. To override the layout template located at
-`Resources/views/layout.html.twig` in the `SpiritDevOAuth2ClientBundle` directory, you would place
-your new layout template at `app/Resources/SpiritDevOAuth2ClientBundle/views/layout.html.twig`.
+`Resources/views/layout.html.twig` in the `SpiritDevOAuth2ServerBundle` directory, you would place
+your new layout template at `app/Resources/SpiritDevOAuth2ServerBundle/views/layout.html.twig`.
 
 As you can see the pattern for overriding templates in this way is to
 create a folder with the name of the bundle class in the `app/Resources` directory.
@@ -88,23 +100,23 @@ planning to override the controllers as well as the templates, it is recommended
 that you use the other method.
 ```
 
-As listed above, you can also create a bundle defined as child of SpiritDevOAuth2ClientBundle and place the new template in the same location that is resides in the SpiritDevOAuth2ClientBundle.
+As listed above, you can also create a bundle defined as child of SpiritDevOAuth2ServerBundle and place the new template in the same location that is resides in the SpiritDevOAuth2ServerBundle.
 The first thing you want to do is override the `getParent` method to your bundle
 class.
 
 ``` php
-// src/Acme/OAuth2ClientBundle/AcmeOAuth2ClientBundle.php
+// src/Acme/OAuth2ServerBundle/AcmeOAuth2ServerBundle.php
 <?php
 
-namespace Acme\OAUth2ClientBundle;
+namespace Acme\OAuth2ServerBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class AcmeUserBundle extends Bundle
+class AcmeOAuth2ServerBundle extends Bundle
 {
     public function getParent()
     {
-        return 'SpiritDevOAuth2ClientBundle';
+        return 'SpiritDevOAuth2ServerBundle';
     }
 }
 ```
@@ -112,14 +124,14 @@ class AcmeUserBundle extends Bundle
 By returning the name of the bundle in the `getParent` method of your bundle class,
 you are telling the Symfony2 framework that your bundle is a child of the FOSUserBundle.
 
-Now that you have declared your bundle as a child of the SpiritDevOAuth2ClientBundle, you can override
+Now that you have declared your bundle as a child of the SpiritDevOAuth2ServerBundle, you can override
 the parent bundle's templates. To override the layout template, simply create a new file
-in the `src/Acme/OAuth2ClientBundle/Resources/views` directory named `layout.html.twig`. Notice
+in the `src/Acme/OAuth2ServerBundle/Resources/views` directory named `layout.html.twig`. Notice
 how this file resides in the same exact path relative to the bundle directory as it
-does in the SpiritDevOAuth2ClientBundle.
+does in the SpiritDevOAuth2ServerBundle.
 
 After overriding a template in your child bundle, you must clear the cache for the override
 to take effect, even in a development environment.
 
-Overriding all of the other templates provided by the SpiritDevOAuth2ClientBundlecan be done
+Overriding all of the other templates provided by the SpiritDevOAuth2ServerBundlecan be done
 in a similar fashion using either of the two methods shown in this document.

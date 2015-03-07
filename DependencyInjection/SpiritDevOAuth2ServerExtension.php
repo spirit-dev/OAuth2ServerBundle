@@ -1,4 +1,26 @@
 <?php
+/*
+ *                                     _________________________________
+ *                                    /       _             _           \
+ *             /(        )`          /       /_`_  ._._/___/ | _         \
+ *             \ \___   / |       __/      . _//_//// /   /_.'/_'|/       \_
+ *             /- _  `-/  '      /            /                             \
+ *            (/\/ \ \   /\     /   Jean Bordat ( Twitter @Ji_Bay_ )         |
+ *            / /   | `    \  _/   Since 2K10 until today                    |
+ *            O O   ) /    |   \  @mail <bordat.jean@gmail.com>              |
+ *            `-^--'`<     '    \  Date 07/03/2015                           |
+ *           (_.)  _  )   /      \                                           |
+ *            `.___/`    /        \_  Code Burner  _________________________/
+ *              `-----' /           \_____________/
+ * <----.     __ / __   \
+ * <----|====O)))==) \) /====
+ * <----'    `--' `.__,' \
+ *              |        |
+ *               \       /
+ *          ______( (_  / \_____
+ *        ,'  ,-----'   |       \
+ *        `--{__________)       \/          hex: 53 70 69 72 69 74 2d 44 65 76
+ */
 
 namespace SpiritDev\Bundle\OAuth2ServerBundle\DependencyInjection;
 
@@ -11,10 +33,16 @@ use Symfony\Component\DependencyInjection\Loader;
  * This is the class that loads and manages your bundle configuration
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
+ *
+ * @author Jean BORDAT <bordat.jean@gmail.com>
+ * Date    07/03/2015 14:28
  */
 class SpiritDevOAuth2ServerExtension extends Extension {
     /**
      * {@inheritDoc}
+     *
+     * @author Jean BORDAT <bordat.jean@gmail.com>
+     * Date    07/03/2015 14:28
      */
     public function load(array $configs, ContainerBuilder $container) {
         $configuration = new Configuration();
@@ -49,10 +77,22 @@ class SpiritDevOAuth2ServerExtension extends Extension {
         }
     }
 
+    /**
+     * @return string
+     *
+     * @author Jean BORDAT <bordat.jean@gmail.com>
+     * Date    07/03/2015 14:28
+     */
     public function getXsdValidationBasePath() {
         return __DIR__.'/../Resources/config/';
     }
 
+    /**
+     * @return string
+     *
+     * @author Jean BORDAT <bordat.jean@gmail.com>
+     * Date    07/03/2015 14:28
+     */
     public function getNamespace() {
         return 'http://www.example.com/symfony/schema/';
     }
