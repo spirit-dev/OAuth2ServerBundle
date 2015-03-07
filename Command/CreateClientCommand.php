@@ -37,13 +37,11 @@ use Symfony\Component\Console\Output\OutputInterface;
  * @author Jean BORDAT <bordat.jean@gmail.com>
  * Date    07/03/2015 14:25
  */
-class CreateClientCommand extends ContainerAwareCommand
-{
+class CreateClientCommand extends ContainerAwareCommand {
     /**
      * Configuration function
      */
-    protected function configure()
-    {
+    protected function configure() {
         $this
             ->setName('spirit-dev:oauth2:client:create')
             ->setDescription('Creates a new OAuth2 client (Spirit-Dev design)')
@@ -79,8 +77,7 @@ EOT
      * @author Jean BORDAT <bordat.jean@gmail.com>
      * Date    07/03/2015 14:26
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
+    protected function execute(InputInterface $input, OutputInterface $output) {
         $clientManager = $this->getContainer()->get('fos_oauth_server.client_manager.default');
         $client = $clientManager->createClient();
         $client->setRedirectUris($input->getOption('redirect-uri'));

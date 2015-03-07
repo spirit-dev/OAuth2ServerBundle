@@ -31,8 +31,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="spiritdev_oauth2_client")
  * @ORM\Entity
  */
-class Client extends BaseClient
-{
+class Client extends BaseClient {
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -40,9 +39,82 @@ class Client extends BaseClient
      */
     protected $id;
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
         // your own logic
+    }
+
+    public function getId() {
+        return $this->id;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setRandomId($random) {
+        $this->randomId = $random;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getRandomId() {
+        return $this->randomId;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getPublicId() {
+        return sprintf('%s_%s', $this->getId(), $this->getRandomId());
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setSecret($secret) {
+        $this->secret = $secret;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getSecret() {
+        return $this->secret;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function checkSecret($secret) {
+        return (null === $this->secret || $secret === $this->secret);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setRedirectUris(array $redirectUris) {
+        $this->redirectUris = $redirectUris;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getRedirectUris() {
+        return $this->redirectUris;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setAllowedGrantTypes(array $grantTypes) {
+        $this->allowedGrantTypes = $grantTypes;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getAllowedGrantTypes() {
+        return $this->allowedGrantTypes;
     }
 }

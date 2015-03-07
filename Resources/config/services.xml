@@ -1,37 +1,37 @@
 <?xml version="1.0" ?>
 
 <container xmlns="http://symfony.com/schema/dic/services"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
 
     <!--<parameters>-->
-        <!--<parameter key="spirit_dev_oauth2_server.user.entity.class">%spirit_dev_o_auth2_server.user_class%</parameter>-->
-        <!--<parameter key="spirit_dev_oauth2_server.user.provider.class">%spirit_dev_o_auth2_server.user_provider%</parameter>-->
-        <!--<parameter key="spirit_dev_oauth2_server.repository.user.class">%spirit_dev_o_auth2_server.user_repository%</parameter>-->
+    <!--<parameter key="spirit_dev_oauth2_server.user.entity.class">%spirit_dev_o_auth2_server.user_class%</parameter>-->
+    <!--<parameter key="spirit_dev_oauth2_server.user.provider.class">%spirit_dev_o_auth2_server.user_provider%</parameter>-->
+    <!--<parameter key="spirit_dev_oauth2_server.repository.user.class">%spirit_dev_o_auth2_server.user_repository%</parameter>-->
     <!--</parameters>-->
 
     <!--<services>-->
 
-        <!--<service id="spirit_dev_oauth2_server.user.manager" class="Doctrine\ORM\EntityManager"-->
-                 <!--factory-service="doctrine" factory-method="getManagerForClass">-->
-            <!--<argument>%spirit_dev_oauth2_server.user.entity.class%</argument>-->
-        <!--</service>-->
+    <!--<service id="spirit_dev_oauth2_server.user.manager" class="Doctrine\ORM\EntityManager"-->
+    <!--factory-service="doctrine" factory-method="getManagerForClass">-->
+    <!--<argument>%spirit_dev_oauth2_server.user.entity.class%</argument>-->
+    <!--</service>-->
 
-        <!--<service id="spirit_dev_oauth2_server.user.repository"-->
-                 <!--class="%spirit_dev_oauth2_server.repository.user.class%"-->
-                 <!--factory-service="spirit_dev_oauth2_server.user.manager" factory-method="getRepository">-->
-            <!--<argument>%spirit_dev_oauth2_server.user.entity.class%</argument>-->
-        <!--</service>-->
+    <!--<service id="spirit_dev_oauth2_server.user.repository"-->
+    <!--class="%spirit_dev_oauth2_server.repository.user.class%"-->
+    <!--factory-service="spirit_dev_oauth2_server.user.manager" factory-method="getRepository">-->
+    <!--<argument>%spirit_dev_oauth2_server.user.entity.class%</argument>-->
+    <!--</service>-->
 
-        <!--<service id="spirit_dev_oauth2_server.user.provider" class="%spirit_dev_oauth2_server.user.provider.class%">-->
-            <!--<argument type="service" id="spirit_dev_oauth2_server.user.repository" />-->
-        <!--</service>-->
+    <!--<service id="spirit_dev_oauth2_server.user.provider" class="%spirit_dev_oauth2_server.user.provider.class%">-->
+    <!--<argument type="service" id="spirit_dev_oauth2_server.user.repository" />-->
+    <!--</service>-->
 
-        <!--<service id="spirit_dev_oauth2_server.grant_type.api_key" class="SpiritDev\Bundle\OAuth2ServerBundle\OAuth\ApiKeyGrantExtension">-->
-            <!--<tag name="fos_oauth_server.grant_extension" uri="http://spirit_dev_oauth2_server.local/grants/api_key" />-->
-            <!--<argument type="service" id="spirit_dev_oauth2_server.user.repository"/>-->
-        <!--</service>-->
+    <!--<service id="spirit_dev_oauth2_server.grant_type.api_key" class="SpiritDev\Bundle\OAuth2ServerBundle\OAuth\ApiKeyGrantExtension">-->
+    <!--<tag name="fos_oauth_server.grant_extension" uri="http://spirit_dev_oauth2_server.local/grants/api_key" />-->
+    <!--<argument type="service" id="spirit_dev_oauth2_server.user.repository"/>-->
+    <!--</service>-->
 
     <!--</services>-->
 
@@ -56,14 +56,15 @@
         </service>
 
         <service id="platform.user.provider" class="%platform.user.provider.class%">
-            <argument type="service" id="platform.user.repository" />
+            <argument type="service" id="platform.user.repository"/>
         </service>
 
-        <service id="platform.grant_type.api_key" class="SpiritDev\Bundle\OAuth2ServerBundle\OAuth\ApiKeyGrantExtension">
-            <tag name="fos_oauth_server.grant_extension" uri="http://platform.local/grants/api_key" />
+        <service id="platform.grant_type.api_key"
+                 class="SpiritDev\Bundle\OAuth2ServerBundle\OAuth\ApiKeyGrantExtension">
+            <tag name="fos_oauth_server.grant_extension" uri="http://platform.local/grants/api_key"/>
             <argument type="service" id="platform.user.repository"/>
         </service>
 
     </services>
-    
+
 </container>

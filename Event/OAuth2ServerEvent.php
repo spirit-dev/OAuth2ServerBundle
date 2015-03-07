@@ -35,70 +35,71 @@ use Symfony\Component\EventDispatcher\Event;
  */
 class OAuth2ServerEvent extends Event {
 
-	protected $data = array();
-	protected $isDefaultPrevented = false;
-	protected $isPropagationStopped = false;
-	public function preventDefault() {
-		$this->isDefaultPrevented = true;
-	}
+    protected $data = array();
+    protected $isDefaultPrevented = false;
+    protected $isPropagationStopped = false;
 
-	/**
-	 * Function returning the status of preventDefault in OAuth2Server Event
-	 * @return boolean
-	 *
-	 * @author Jean BORDAT <bordat.jean@gmail.com>
-	 * Date    07/03/2015 14:30
-	 */
-	public function isDefaultPrevented() {
-		return $this->isDefaultPrevented;
-	}
+    public function preventDefault() {
+        $this->isDefaultPrevented = true;
+    }
 
-	/**
-	 * This function the bundle to stop propagation if event triggered
-	 *
-	 * @author Jean BORDAT <bordat.jean@gmail.com>
-	 * Date    07/03/2015 14:30
-	 */
-	public function stopPropagation() {
-		$this->isPropagationStopped = true;
-	}
-
-	/**
-	 * Function returns the status of PropagationStop value for this bundle
-	 * @return boolean
-	 *
-	 * @author Jean BORDAT <bordat.jean@gmail.com>
-	 * Date    07/03/2015 14:30
-	 */
-	public function isPropagationStopped() {
-		return $this->isPropagationStopped;
-	}
-
-	/**
-	 * Function whitch sets the value of a defined var
-	 * @param String $key Represents the name of var to set
-	 * @param Mixed $val Represents the value to set with
-	 *
-	 * @author Jean BORDAT <bordat.jean@gmail.com>
-	 * Date    07/03/2015 14:30
-	 */
-	public function set($key, $val) {
-		$this->data[$key] = $val;
-	}
-
-	/**
-	 * Function returns the defined value for the key parameter
-	 * @param  String $key Represents the class variable to return
-	 * @return Mixed      Value of the $key parameter
+    /**
+     * Function returning the status of preventDefault in OAuth2Server Event
+     * @return boolean
      *
      * @author Jean BORDAT <bordat.jean@gmail.com>
      * Date    07/03/2015 14:30
-	 */
-	public function get($key) {
-		if (!array_key_exists($key, $this->data)) {
-			return null;
-		}
-		return $this->data[$key];
-	}
+     */
+    public function isDefaultPrevented() {
+        return $this->isDefaultPrevented;
+    }
+
+    /**
+     * This function the bundle to stop propagation if event triggered
+     *
+     * @author Jean BORDAT <bordat.jean@gmail.com>
+     * Date    07/03/2015 14:30
+     */
+    public function stopPropagation() {
+        $this->isPropagationStopped = true;
+    }
+
+    /**
+     * Function returns the status of PropagationStop value for this bundle
+     * @return boolean
+     *
+     * @author Jean BORDAT <bordat.jean@gmail.com>
+     * Date    07/03/2015 14:30
+     */
+    public function isPropagationStopped() {
+        return $this->isPropagationStopped;
+    }
+
+    /**
+     * Function whitch sets the value of a defined var
+     * @param String $key Represents the name of var to set
+     * @param Mixed $val Represents the value to set with
+     *
+     * @author Jean BORDAT <bordat.jean@gmail.com>
+     * Date    07/03/2015 14:30
+     */
+    public function set($key, $val) {
+        $this->data[$key] = $val;
+    }
+
+    /**
+     * Function returns the defined value for the key parameter
+     * @param  String $key Represents the class variable to return
+     * @return Mixed      Value of the $key parameter
+     *
+     * @author Jean BORDAT <bordat.jean@gmail.com>
+     * Date    07/03/2015 14:30
+     */
+    public function get($key) {
+        if (!array_key_exists($key, $this->data)) {
+            return null;
+        }
+        return $this->data[$key];
+    }
 
 }

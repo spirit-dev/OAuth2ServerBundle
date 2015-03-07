@@ -31,8 +31,7 @@ namespace SpiritDev\Bundle\OAuth2ServerBundle\Model;
  * @author Jean BORDAT <bordat.jean@gmail.com>
  * Date    07/03/2015 14:30
  */
-interface UserSubjectInterface
-{
+interface UserSubjectInterface {
     // Liste toutes les méthodes additionnelles dont votre
     // InvoiceBundle aura besoin pour accéder au sujet afin
     // que vous soyez sûr que vous avez accès à ces méthodes.

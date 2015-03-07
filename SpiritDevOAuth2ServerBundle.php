@@ -34,5 +34,5 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  * Date    07/03/2015 14:32
  */
 class SpiritDevOAuth2ServerBundle extends Bundle {
-	
+
 }

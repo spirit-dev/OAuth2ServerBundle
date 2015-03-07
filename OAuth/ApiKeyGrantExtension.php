@@ -34,8 +34,7 @@ use OAuth2\Model\IOAuth2Client;
  * @author Jean BORDAT <bordat.jean@gmail.com>
  * Date    07/03/2015 14:31
  */
-class ApiKeyGrantExtension implements GrantExtensionInterface
-{
+class ApiKeyGrantExtension implements GrantExtensionInterface {
 
     private $userRepository;
 
@@ -45,8 +44,7 @@ class ApiKeyGrantExtension implements GrantExtensionInterface
      * @author Jean BORDAT <bordat.jean@gmail.com>
      * Date    07/03/2015 14:31
      */
-    public function __construct(ObjectRepository $userRepository)
-    {
+    public function __construct(ObjectRepository $userRepository) {
         $this->userRepository = $userRepository;
     }
 
@@ -56,8 +54,7 @@ class ApiKeyGrantExtension implements GrantExtensionInterface
      * @author Jean BORDAT <bordat.jean@gmail.com>
      * Date    07/03/2015 14:31
      */
-    public function checkGrantExtension(IOAuth2Client $client, array $inputData, array $authHeaders)
-    {
+    public function checkGrantExtension(IOAuth2Client $client, array $inputData, array $authHeaders) {
         $user = $this->userRepository->findOneByApiKey($inputData['api_key']);
 
         if ($user) {

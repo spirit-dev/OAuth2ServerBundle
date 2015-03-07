@@ -52,27 +52,24 @@ class SpiritDevOAuth2ServerExtension extends Extension {
         }
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.xml');
 
         if (!isset($config['spiritdev_oauth_settings']['user_class'])) {
             throw new \InvalidArgumentException('The "user_class" option must be set');
-        }
-        else {
+        } else {
             $container->setParameter('spirit_dev_o_auth2_server.user_class', $config['spiritdev_oauth_settings']['user_class']);
         }
 
         if (!isset($config['spiritdev_oauth_settings']['user_provider'])) {
             throw new \InvalidArgumentException('The "user_provider" option must be set');
-        }
-        else {
+        } else {
             $container->setParameter('spirit_dev_o_auth2_server.user_provider', $config['spiritdev_oauth_settings']['user_provider']);
         }
 
         if (!isset($config['spiritdev_oauth_settings']['user_repository'])) {
             throw new \InvalidArgumentException('The "user_repository" option must be set');
-        }
-        else {
+        } else {
             $container->setParameter('spirit_dev_o_auth2_server.user_repository', $config['spiritdev_oauth_settings']['user_repository']);
         }
     }
@@ -84,7 +81,7 @@ class SpiritDevOAuth2ServerExtension extends Extension {
      * Date    07/03/2015 14:28
      */
     public function getXsdValidationBasePath() {
-        return __DIR__.'/../Resources/config/';
+        return __DIR__ . '/../Resources/config/';
     }
 
     /**

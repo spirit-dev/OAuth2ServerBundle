@@ -36,8 +36,7 @@ use Symfony\Component\Security\Core\SecurityContext;
  * @author Jean BORDAT <bordat.jean@gmail.com>
  * Date    07/03/2015 14:26
  */
-class SecurityController extends Controller
-{
+class SecurityController extends Controller {
 
     /**
      * @param Request $request
@@ -46,8 +45,7 @@ class SecurityController extends Controller
      * @author Jean BORDAT <bordat.jean@gmail.com>
      * Date    07/03/2015 14:26
      */
-    public function loginAction(Request $request)
-    {
+    public function loginAction(Request $request) {
         $session = $request->getSession();
 
         if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
@@ -60,8 +58,7 @@ class SecurityController extends Controller
         }
 
         if ($error) {
-            $error = $error->getMessage(
-            ); // WARNING! Symfony source code identifies this line as a potential security threat.
+            $error = $error->getMessage(); // WARNING! Symfony source code identifies this line as a potential security threat.
         }
 
         $lastUsername = (null === $session) ? '' : $session->get(SecurityContext::LAST_USERNAME);
@@ -81,8 +78,7 @@ class SecurityController extends Controller
      * @author Jean BORDAT <bordat.jean@gmail.com>
      * Date    07/03/2015 14:26
      */
-    public function loginCheckAction(Request $request)
-    {
+    public function loginCheckAction(Request $request) {
 
     }
 }

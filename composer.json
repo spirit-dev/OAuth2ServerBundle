@@ -1,22 +1,28 @@
 {
-    "name": "spirit-dev/oauth2-server-bundle",
-    "type": "symfony-bundle",
-    "description": "Symfony OAuth2 Bundle server side",
-    "keywords": ["Spirit-Dev", "OAuth2", "Auto provider", "server", "security"],
-    "license": "GPL-v2",
-    "authors": [
-        {
-            "name": "Jean Bordat",
-            "email": "bordat.jean@gmail.com",
-            "homepage": "http://jean.bordat.me/"
-        }
-    ],
-    "require": {
-        "php": ">=5.3.2"
-    },
-    "autoload": {
-        "psr-0": { "SpiritDev\\Bundle\\OAuth2ServerBundle": "" }
-    },
-    "target-dir": "SpiritDev/Bundle/OAuth2ServerBundle",
-    "minimum-stability": "dev"
+  "name": "spirit-dev/oauth2-server-bundle",
+  "type": "symfony-bundle",
+  "description": "Symfony OAuth2 Bundle server side",
+  "keywords": [
+    "Spirit-Dev",
+    "OAuth2",
+    "Auto provider",
+    "server",
+    "security"
+  ],
+  "license": "GPL-v2",
+  "authors": [
+    {
+      "name": "Jean Bordat",
+      "email": "bordat.jean@gmail.com",
+      "homepage": "http://jean.bordat.me/"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.2"
+  },
+  "autoload": {
+    "psr-0": {"SpiritDev\\Bundle\\OAuth2ServerBundle": ""}
+  },
+  "target-dir": "SpiritDev/Bundle/OAuth2ServerBundle",
+  "minimum-stability": "dev"
 }
