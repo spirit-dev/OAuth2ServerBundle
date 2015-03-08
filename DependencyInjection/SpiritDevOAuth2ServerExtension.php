@@ -55,22 +55,24 @@ class SpiritDevOAuth2ServerExtension extends Extension {
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.xml');
 
-        if (!isset($config['spiritdev_oauth_settings']['user_class'])) {
+        $mainConfigName = 'spiritdev_oauth_settings';
+
+        if (!isset($config[$mainConfigName]['user_class'])) {
             throw new \InvalidArgumentException('The "user_class" option must be set');
         } else {
-            $container->setParameter('spirit_dev_o_auth2_server.user_class', $config['spiritdev_oauth_settings']['user_class']);
+            $container->setParameter('spirit_dev_o_auth2_server.user_class', $config[$mainConfigName]['user_class']);
         }
 
-        if (!isset($config['spiritdev_oauth_settings']['user_provider'])) {
+        if (!isset($config[$mainConfigName]['user_provider'])) {
             throw new \InvalidArgumentException('The "user_provider" option must be set');
         } else {
-            $container->setParameter('spirit_dev_o_auth2_server.user_provider', $config['spiritdev_oauth_settings']['user_provider']);
+            $container->setParameter('spirit_dev_o_auth2_server.user_provider', $config[$mainConfigName]['user_provider']);
         }
 
-        if (!isset($config['spiritdev_oauth_settings']['user_repository'])) {
+        if (!isset($config[$mainConfigName]['user_repository'])) {
             throw new \InvalidArgumentException('The "user_repository" option must be set');
         } else {
-            $container->setParameter('spirit_dev_o_auth2_server.user_repository', $config['spiritdev_oauth_settings']['user_repository']);
+            $container->setParameter('spirit_dev_o_auth2_server.user_repository', $config[$mainConfigName]['user_repository']);
         }
     }
 
